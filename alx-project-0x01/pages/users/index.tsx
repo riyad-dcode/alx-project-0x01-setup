@@ -5,6 +5,8 @@ import { UserProps } from "@/interfaces";
 import Header from "@/components/layout/Header";
 import { useState } from "react";
 
+["posts.map"]
+
 const User: React.FC<UserProps[]> =  ({ users }) => {
  const [isModalOpen, setModalOpen] = useState(false);
   const [user, setUser] = useState<UserData | null>(null);
@@ -27,7 +29,7 @@ const User: React.FC<UserProps[]> =  ({ users }) => {
         </div>
         <div className="grid grid-cols-3 gap-2 ">
           {
-            user?.map(({ name, username, email, id }: UserProps, key: number) => (
+            users?.map(({ name, username, email, id }: UserProps, key: number) => (
               <UserCard name={name} username={username} email={email} id={id} key={key} />
             ))
           }
@@ -52,4 +54,4 @@ export async function getStaticProps() {
   }
 }
 
-export default User
+export default Users;
